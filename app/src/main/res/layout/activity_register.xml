@@ -37,10 +37,12 @@
         android:hint="Enter Password"
         android:layout_marginBottom="10dp"/>
 
-    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+    <Spinner
         android:id="@+id/status_drop_down_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
         android:hint="Set Status"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"

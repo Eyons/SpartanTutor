@@ -2,12 +2,15 @@ package app.spartantutor.com.spartantutor;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +30,13 @@ import org.json.JSONObject;
  * Created by Aaron on 12/11/2017.
  */
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText username, password;
     Button registerButton;
-    String user, pass;
+    String user, pass, tutStatus;
     TextView login;
-    String [] SPINNERLIST={"Looking for Tutor", "Looking to be a Tutor"};
+    String [] statusList={"Looking for Tutor", "Looking to be a Tutor"};
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,17 @@ public class Register extends AppCompatActivity {
         registerButton = (Button)findViewById(R.id.registerButton);
         login = (TextView)findViewById(R.id.login);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,SPINNERLIST);
-        MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner)findViewById(R.id.status_drop_down_bar);
-        betterSpinner.setAdapter(arrayAdapter);
+        spinner = (Spinner)findViewById(R.id.status_drop_down_bar);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Register.this, android.R.layout.simple_dropdown_item_1line, statusList);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+        /*MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner)findViewById(R.id.status_drop_down_bar);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,StatusList);
+
+        betterSpinner.setAdapter(arrayAdapter);*/
 
         Firebase.setAndroidContext(this);
 
@@ -92,7 +104,9 @@ public class Register extends AppCompatActivity {
 
                             if(s.equals("null")) {
                                 reference.child(user).child("password").setValue(pass);
+                                reference.child(user).child("status").setValue(tutStatus);
                                 Toast.makeText(Register.this, "Registration was successful!", Toast.LENGTH_LONG).show();
+                                finish();
                             }
                             else {
                                 try {
@@ -100,7 +114,9 @@ public class Register extends AppCompatActivity {
 
                                     if (!obj.has(user)) {
                                         reference.child(user).child("password").setValue(pass);
+                                        reference.child(user).child("status").setValue(tutStatus);
                                         Toast.makeText(Register.this, "Registration was successful!", Toast.LENGTH_LONG).show();
+                                        finish();
                                     } else {
                                         Toast.makeText(Register.this, "Username already taken", Toast.LENGTH_LONG).show();
                                     }
@@ -111,7 +127,6 @@ public class Register extends AppCompatActivity {
                             }
 
                             pd.dismiss();
-                            finish();
                         }
 
                     },new Response.ErrorListener(){
@@ -127,5 +142,23 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id){
+        switch (position) {
+            case 0:
+                tutStatus = "Tutee";
+                break;
+            case 1:
+                tutStatus = "Tutor";
+                break;
+            default:
+                tutStatus = "Tutee";
+                break;
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent){
+
     }
 }

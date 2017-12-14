@@ -22,6 +22,7 @@ package="app.spartantutor.com.spartantutor">
     <activity android:name="app.spartantutor.com.spartantutor.Chat" />
     <activity android:name="app.spartantutor.com.spartantutor.Profile"/>
     <activity android:name="app.spartantutor.com.spartantutor.MainMenu"/>
+    <activity android:name="app.spartantutor.com.spartantutor.EditProfile"/>
 </application>
 
 </manifest>

@@ -1,23 +1,11 @@
 package app.spartantutor.com.spartantutor;
 
-import java.lang.Object;
-import java.net.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,19 +13,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
+
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
-import com.firebase.client.ValueEventListener;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -88,12 +68,35 @@ public class Profile extends AppCompatActivity{
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
 
-        sendMessage = (Button) findViewById(R.id.send_button);
-        sendMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Profile.this, Chat.class));
-            }
-        });
+        if(UserDetails.username == UserDetails.chatWith){
+            Button editProfile = (Button)findViewById(R.id.edit_profile);
+            editProfile.setVisibility(View.VISIBLE);
+            editProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Profile.this, EditProfile.class);
+                    startActivityForResult(intent, 1);
+                }
+            });
+        } else{
+            sendMessage = (Button) findViewById(R.id.send_button);
+            sendMessage.setVisibility(View.VISIBLE);
+            sendMessage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(Profile.this, Chat.class));
+                }
+            });
+        }
+
+
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            Intent refresh = new Intent(Profile.this, Profile.class);
+            startActivity(refresh);
+            this.finish();
+        }
     }
 }

@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,10 +35,13 @@ public class Users extends AppCompatActivity{
     int totalUsers = 0;
     ProgressDialog pd;
 
+    String status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        getSupportActionBar().setTitle("User List");
 
         usersList = (ListView) findViewById(R.id.usersList);
         noUsersText = (TextView) findViewById(R.id.noUsersText);
@@ -67,7 +71,8 @@ public class Users extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserDetails.chatWith = al.get(position);
-                startActivity(new Intent(Users.this, Chat.class));
+                /*startActivity(new Intent(Users.this, Chat.class));*/
+                startActivity(new Intent(Users.this, Profile.class));
             }
         });
     }
@@ -82,6 +87,8 @@ public class Users extends AppCompatActivity{
             while(i.hasNext()){
                 key = i.next().toString();
                 if (!key.equals(UserDetails.username)){
+                    /*key += " - ";
+                    key += obj.getString("status");*/
                     al.add(key);
                 }
 

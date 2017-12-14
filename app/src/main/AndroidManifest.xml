@@ -20,6 +20,7 @@ package="app.spartantutor.com.spartantutor">
     <activity android:name="app.spartantutor.com.spartantutor.Register" />
     <activity android:name="app.spartantutor.com.spartantutor.Users" />
     <activity android:name="app.spartantutor.com.spartantutor.Chat" />
+    <activity android:name="app.spartantutor.com.spartantutor.Profile"/>
 </application>
 
 </manifest>

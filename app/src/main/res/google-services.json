@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "571733183272",
+    "firebase_url": "https://spartantutor-d15cf.firebaseio.com",
+    "project_id": "spartantutor-d15cf",
+    "storage_bucket": "spartantutor-d15cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571733183272:android:05a5fe88e8ca14e4",
+        "android_client_info": {
+          "package_name": "app.spartantutor.com.spartantutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571733183272-pbr84e4hkd5b13qv0vpmgriol9rdga99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.spartantutor.com.spartantutor",
+            "certificate_hash": "a1d78ddc87e94162897549f6a4aff92ef1e13427"
+          }
+        },
+        {
+          "client_id": "571733183272-6b4sst59n17dhl7nl89efj2me2r4qk42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3sTKIl1IsW96KtD2Y7TsJimaEk786GN4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571733183272-6b4sst59n17dhl7nl89efj2me2r4qk42.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

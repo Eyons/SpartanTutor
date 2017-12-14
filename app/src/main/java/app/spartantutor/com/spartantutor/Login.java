@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
 
         registerUser = (TextView) findViewById(R.id.register);
         username = (EditText) findViewById(R.id.username);
@@ -77,6 +78,7 @@ public class Login extends AppCompatActivity {
                                     } else if (obj.getJSONObject(user).getString("password").equals(pass)) {
                                         UserDetails.username = user;
                                         UserDetails.password = pass;
+                                        UserDetails.status = obj.getJSONObject(user).getString("status");
                                         startActivity(new Intent(Login.this, Users.class));
                                     } else {
                                         Toast.makeText(Login.this, "Incorrect Password", Toast.LENGTH_LONG).show();

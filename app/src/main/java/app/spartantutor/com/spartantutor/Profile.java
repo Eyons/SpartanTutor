@@ -46,11 +46,8 @@ import org.json.JSONObject;
  */
 
 public class Profile extends AppCompatActivity{
-    ConstraintLayout layout;
     Button sendMessage;
-    String user, tutStat;
-    Firebase ref;
-    ArrayList<String> al = new ArrayList<>();
+    String user;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

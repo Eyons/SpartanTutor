@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Spartan Tutor</string>
+
+    <string
+        name="spartan_tut">
+
+Spartan Tutor
+</string>
+    <string
+        name="welcome_ins">
+
+Welcome, InsertNameHere
+</string>
 </resources>

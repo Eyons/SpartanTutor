@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="app.spartantutor.com.spartantutor.MainMenu"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/spartan_tut"
+        android:layout_width="300dp"
+        android:layout_height="57dp"
+        android:layout_below="@+id/rectangle"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/spartan_tut"
+        android:textAppearance="@style/spartan_tut" />
+
+    <TextView
+        android:id="@+id/welcome_ins"
+        android:layout_width="203dp"
+        android:layout_height="34dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spartan_tut"
+        android:layout_marginTop="17dp"
+        android:gravity="center_horizontal"
+        android:text="@string/welcome_ins"
+        android:textAppearance="@style/welcome_ins" />
+
+    <View
+        android:id="@+id/rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="199dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rectangle" />
+
+    <Button
+        android:id="@+id/my_profile"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/welcome_ins"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/my_profile" />
+
+    <Button
+        android:id="@+id/user_list"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="371dp"
+        android:background="@drawable/user_list" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="531dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logout" />
+
+    <Button
+        android:id="@+id/class_searc"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="451dp"
+        android:background="@drawable/class_search" />
+
+</RelativeLayout>

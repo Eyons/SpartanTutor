@@ -88,6 +88,7 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id){
         switch (position) {
             case 0:
+                tutStatus = UserDetails.status;
                 break;
             case 1:
                 tutStatus = "Tutee";

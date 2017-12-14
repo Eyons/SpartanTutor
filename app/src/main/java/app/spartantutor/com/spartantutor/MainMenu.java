@@ -40,13 +40,13 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        /*classSearch = (Button)findViewById(R.id.class_searc);
+        classSearch = (Button)findViewById(R.id.class_searc);
         classSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenu.this, ClassSearch.class));
             }
-        });*/
+        });
 
         logout = (Button)findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {

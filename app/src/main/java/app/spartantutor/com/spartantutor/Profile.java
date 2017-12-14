@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * Created by Aaron on 12/12/2017.
@@ -38,6 +39,7 @@ public class Profile extends AppCompatActivity{
 
         final TextView uStat = (TextView)findViewById(R.id.user_status);
         TextView dName = (TextView)findViewById(R.id.DisplayName);
+        final TextView lfClass = (TextView)findViewById(R.id.lf_class);
         dName.setText(user);
 
 
@@ -54,6 +56,12 @@ public class Profile extends AppCompatActivity{
                     JSONObject obj = new JSONObject(s);
                     UserDetails.status = obj.getJSONObject(user).getString("status");
                     uStat.setText(obj.getJSONObject(user).getString("status"));
+                    if(uStat.getText().equals("Tutor")){
+                        lfClass.setText("Looking to Tutor " + obj.getJSONObject(user).getString("class"));
+                    }
+                    else{
+                        lfClass.setText("Looking for a tutor for " + obj.getJSONObject(user).getString("class"));
+                    }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

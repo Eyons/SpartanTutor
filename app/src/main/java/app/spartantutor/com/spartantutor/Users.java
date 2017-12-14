@@ -47,7 +47,7 @@ public class Users extends AppCompatActivity{
         noUsersText = (TextView) findViewById(R.id.noUsersText);
 
         pd = new ProgressDialog(Users.this);
-        pd.setMessage("Loading...)");
+        pd.setMessage("Loading...");
         pd.show();
 
         String url = "https://spartantutor-d15cf.firebaseio.com/users.json";
@@ -71,7 +71,6 @@ public class Users extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserDetails.chatWith = al.get(position);
-                /*startActivity(new Intent(Users.this, Chat.class));*/
                 startActivity(new Intent(Users.this, Profile.class));
             }
         });
